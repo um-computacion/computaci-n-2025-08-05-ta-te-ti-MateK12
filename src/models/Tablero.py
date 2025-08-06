@@ -18,11 +18,11 @@ class Tablero:
             raise PosOcupadaException("POSICION OCUPADA!! Por favor elija otra")
     
     def validarPosicion(self,fil:int,col:int):
+        if not isinstance(col, int) or not isinstance(fil,int):
+            raise PosInvalida("POSICION INVALIDA!! Por favor elija una posicion valida (entre 0y2 para filas y columnas)")
         if fil>2 or col>2:
             raise PosInvalida("POSICION INVALIDA!! Por favor elija una posicion valida (entre 0y2 para filas y columnas)")
         if col<0 or fil<0:
-            raise PosInvalida("POSICION INVALIDA!! Por favor elija una posicion valida (entre 0y2 para filas y columnas)")
-        if not isinstance(col, int) or not isinstance(fil,int):
             raise PosInvalida("POSICION INVALIDA!! Por favor elija una posicion valida (entre 0y2 para filas y columnas)")
     def hayEmpate(self) -> bool:
        if self.HayGanador():
