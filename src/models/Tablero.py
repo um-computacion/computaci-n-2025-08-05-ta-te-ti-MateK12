@@ -24,7 +24,14 @@ class Tablero:
             raise PosInvalida("POSICION INVALIDA!! Por favor elija una posicion valida (entre 0y2 para filas y columnas)")
         if not isinstance(col, int) or not isinstance(fil,int):
             raise PosInvalida("POSICION INVALIDA!! Por favor elija una posicion valida (entre 0y2 para filas y columnas)")
-    
+    def hayEmpate(self) -> bool:
+       if self.HayGanador():
+           return False
+       for fila in self.contenedor:
+           for celda in fila:
+               if celda is None:
+                   return False
+       return True
     def HayGanador(self) -> bool:
        # Verificar filas
        for fila in self.contenedor:

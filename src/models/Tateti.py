@@ -9,6 +9,7 @@ class Tateti:
         self.turno:TipoFicha = TipoFicha.EQUIS.value
         self.tablero = Tablero()
         self.ganador:TipoFicha = None
+        self.empate:bool = False
         self.jugador1:Jugador = jugador1
         self.jugador2:Jugador = jugador2
 
@@ -24,7 +25,8 @@ class Tateti:
             if self.tablero.HayGanador():
                 self.ganador = TipoFicha.CIRCULO.value
         if self.tablero.HayGanador():
-            print('Hay ganadorrrrr')
+            return
+        self.empate =self.tablero.hayEmpate() 
     def getTurno(self)->str:
         if self.turno==TipoFicha.EQUIS.value:
             return 'X'
